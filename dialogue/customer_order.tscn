@@ -1,0 +1,153 @@
+[gd_scene load_steps=3 format=3 uid="uid://gs3a2ibhqla"]
+
+[ext_resource type="Texture2D" uid="uid://dh8yath8lymqm" path="res://art/UI/inventory-slot.png" id="1_at0dc"]
+[ext_resource type="Script" path="res://dialogue/customer_order.gd" id="1_dihl4"]
+
+[node name="Customer_Order" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_dihl4")
+
+[node name="Order1_ui" type="NinePatchRect" parent="."]
+offset_left = -2366.0
+offset_top = -2725.0
+offset_right = 2242.0
+offset_bottom = -1601.0
+texture = ExtResource("1_at0dc")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="Order1_ui"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 18.0
+offset_right = 227.0
+offset_bottom = 41.0
+scale = Vector2(15, 15)
+text = "Customer Order:"
+
+[node name="Text" type="RichTextLabel" parent="Order1_ui"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 386.0
+offset_right = 532.0
+offset_bottom = 433.0
+scale = Vector2(12.5, 12.5)
+text = " Can I have a brew with some scream and sugar?"
+
+[node name="TakeOrderButton1" type="Button" parent="Order1_ui"]
+modulate = Color(0.350632, 0.567324, 0, 1)
+layout_mode = 0
+offset_left = 1174.0
+offset_top = 667.0
+offset_right = 1219.0
+offset_bottom = 708.0
+scale = Vector2(10, 10)
+text = "Take Order"
+
+[node name="TimeButton1" type="Button" parent="Order1_ui"]
+modulate = Color(0.529107, 0.348828, 1, 1)
+layout_mode = 0
+offset_left = 2264.0
+offset_top = 672.0
+offset_right = 2313.0
+offset_bottom = 713.0
+scale = Vector2(10, 10)
+text = "Timer?"
+
+[node name="Order2_ui" type="NinePatchRect" parent="."]
+visible = false
+offset_left = -2366.0
+offset_top = -2725.0
+offset_right = 2242.0
+offset_bottom = -1601.0
+texture = ExtResource("1_at0dc")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="Order2_ui"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 18.0
+offset_right = 227.0
+offset_bottom = 41.0
+scale = Vector2(15, 15)
+text = "Customer Order:"
+
+[node name="Text" type="RichTextLabel" parent="Order2_ui"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 386.0
+offset_right = 532.0
+offset_bottom = 433.0
+scale = Vector2(12.5, 12.5)
+text = "ahhh.. im half dead, sure would like a brew of golem tears and serpent spit"
+
+[node name="No_Order" type="NinePatchRect" parent="."]
+visible = false
+offset_left = -2366.0
+offset_top = -2725.0
+offset_right = 2242.0
+offset_bottom = -1601.0
+texture = ExtResource("1_at0dc")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="No_Order"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 18.0
+offset_right = 227.0
+offset_bottom = 41.0
+scale = Vector2(15, 15)
+text = "Customer Order:"
+
+[node name="Text" type="RichTextLabel" parent="No_Order"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 386.0
+offset_right = 532.0
+offset_bottom = 433.0
+scale = Vector2(12.5, 12.5)
+text = "No Order- tbh
+"
+
+[node name="Finished_Order" type="NinePatchRect" parent="."]
+visible = false
+offset_left = -2366.0
+offset_top = -2725.0
+offset_right = 2242.0
+offset_bottom = -1601.0
+texture = ExtResource("1_at0dc")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="Finished_Order"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 18.0
+offset_right = 227.0
+offset_bottom = 41.0
+scale = Vector2(15, 15)
+text = "Customer:"
+
+[node name="Text" type="RichTextLabel" parent="Finished_Order"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 386.0
+offset_right = 532.0
+offset_bottom = 433.0
+scale = Vector2(12.5, 12.5)
+text = "Gosh, this drink is to die for! Well, if I wasn’t already dead, that is"
+
+[connection signal="pressed" from="Order1_ui/TakeOrderButton1" to="." method="_on_take_order_button_1_pressed"]

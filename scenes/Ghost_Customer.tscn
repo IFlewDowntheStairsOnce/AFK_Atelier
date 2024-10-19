@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3lpw02h6qup5"]
+[gd_scene load_steps=15 format=3 uid="uid://c3lpw02h6qup5"]
 
 [ext_resource type="Script" path="res://scenes/ghost_customer.gd" id="1_18dcr"]
 [ext_resource type="Texture2D" uid="uid://bd76olx88trgl" path="res://art/characters/Ghost_Customer/Ghost_Customer_Neutral.png" id="1_mq50i"]
 [ext_resource type="Texture2D" uid="uid://4evkibdchmmn" path="res://art/characters/Ghost_Customer/Ghost_Customer_Satisfied.png" id="2_4i7ev"]
 [ext_resource type="Texture2D" uid="uid://cnyjrsgh3f7x8" path="res://art/characters/Ghost_Customer/Ghost_Customer_Unsatisfied.png" id="3_d1g4w"]
 [ext_resource type="PackedScene" uid="uid://mt8p7n8myi7y" path="res://dialogue/dialogue.tscn" id="5_g14yc"]
+[ext_resource type="PackedScene" uid="uid://gs3a2ibhqla" path="res://dialogue/customer_order.tscn" id="6_mhk1x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_is1cb"]
 atlas = ExtResource("1_mq50i")
@@ -90,7 +91,10 @@ autostart = true
 
 [node name="Dialogue" parent="." instance=ExtResource("5_g14yc")]
 
+[node name="Customer_Order" parent="." instance=ExtResource("6_mhk1x")]
+
 [connection signal="body_entered" from="Chat_Detection_Area" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="Chat_Detection_Area" to="." method="_on_chat_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="Dialogue_Finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]
+[connection signal="Order_Log_Closed" from="Customer_Order" to="." method="_on_customer_order_order_log_closed"]

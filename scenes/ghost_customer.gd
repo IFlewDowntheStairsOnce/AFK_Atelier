@@ -22,6 +22,10 @@ var Potion1
 var Potion2
 var Potion3
 
+signal Potion1_Collected
+signal Potion2_Collected
+signal Potion3_Collected
+
 # Different Customer Moods ie "VIBE CHECK" LOLOOO
 enum {
 	IDLE,
@@ -55,9 +59,17 @@ func _process(delta):
 				
 	if Input.is_action_just_pressed("chat"):
 		print ("Chatting---")
+		$Dialogue.Start()
 		Is_Roaming = false
 		Is_Talking = true
-		$AmimatedSprite2D.play("Idle")			
+		$AmimatedSprite2D.play("Idle")
+		
+	if Input.is_action_just_pressed("order"):
+		print("Order Recieved")
+		$Customer_Order.Next_Order()
+		Is_Roaming = false
+		Is_Talking = true
+		$AnimatedSprite2D.play("Idle")
 '''
 if Potion_Given:
 		match Current_State:
@@ -75,7 +87,7 @@ func Choose(array): #pick potion
 func Move(delta):
 	if !Is_Talking:
 		position += Dir * Speed * delta
-	
+'''
 func _on_chat_detection_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		Player = body
@@ -84,7 +96,7 @@ func _on_chat_detection_area_body_entered(body: Node2D) -> void:
 func _on_chat_detection_area_body_exited(body: Node2D) -> void:
 	if body.has_method("player"):
 		Player_in_Dialouge = false
-
+'''
 
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = Choose([0.5,1,1.5])
@@ -94,3 +106,8 @@ func _on_timer_timeout() -> void:
 func _on_dialogue_dialogue_finished() -> void:
 		Is_Talking = false
 		Is_Roaming = true
+
+
+func _on_customer_order_order_log_closed() -> void:
+	Is_Talking = false
+	Is_Roaming = true
