@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://dyw8kocxyhvqd"]
+[gd_scene load_steps=2 format=3 uid="uid://dyw8kocxyhvqd"]
+
+[ext_resource type="PackedScene" uid="uid://c3lpw02h6qup5" path="res://scenes/Ghost_Customer.tscn" id="1_dd7t5"]
 
 [node name="main" type="Node2D"]
+
+[node name="Ghost_Customer" parent="." instance=ExtResource("1_dd7t5")]

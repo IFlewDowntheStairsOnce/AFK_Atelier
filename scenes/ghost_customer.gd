@@ -127,3 +127,11 @@ func _on_drop_area_body_entered(body):
 		
 func ResetTalking():
 	Is_Talking = false
+
+func _on_body_entered(body):
+	if body.is_in_group("potions"):  # Check if it's a potion
+		body.connect("input_event", self, "_on_potion_input_event", [body])
+
+func _on_body_exited(body):
+	if body.is_in_group("potions"):
+		body.disconnect("input_event", self, "_on_potion_input_event")

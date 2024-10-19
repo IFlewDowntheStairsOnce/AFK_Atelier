@@ -1,25 +1,21 @@
 extends Node2D
 
-signal potion_received(potion_type)
+signal give_potion(id)
 @export var id : int = 0
 var selected = false
+var in_customer = false
 
 #func _ready():
 #	connect("body_entered", self, "_on_body_entered")
 #	connect("body_exited", self, "_on_body_exited")
 
-func _on_body_entered(body):
-	if body.is_in_group("potions"):  # Check if it's a potion
-		body.connect("input_event", self, "_on_potion_input_event", [body])
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("customers"):
+		in_customer = true
 
-func _on_body_exited(body):
-	if body.is_in_group("potions"):
-		body.disconnect("input_event", self, "_on_potion_input_event")
-
-func _on_potion_input_event(viewport, event, shape_idx, potion):
-	if event is InputEventMouseButton and event.pressed:
-		emit_signal("potion_received", potion.potion_type)
-		potion.queue_free()  # Remove the potion from the scene
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("customers"):
+		in_customer = false
 
 # Function for picking potion up w/click input
 func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
@@ -30,9 +26,17 @@ func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: in
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("click"):
 		selected = false
+		if in_customer:
+			print("in customer")
+			emit_signal("give_potion", id)
+			queue_free()
 
 # Potion follows the mouse while it is selected
 func _physics_process(delta: float) -> void:
+	if in_customer:
+		print("potion is touching customer")
+		emit_signal("potion_received", id)
+		queue_free()  # Remove the potion from the scene
 	if selected:
 		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
 
