@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://davwn74ysxkvq"]
+
+[ext_resource type="Texture2D" uid="uid://bsutrvwydgpho" path="res://assets/temp_cauldron.png" id="1_q8f5d"]
+[ext_resource type="Script" path="res://scripts/generic_cauldron.gd" id="1_qswpq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6sb2h"]
+radius = 72.6911
+
+[node name="cauldron" type="Node2D"]
+script = ExtResource("1_qswpq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.249266, 0.248)
+texture = ExtResource("1_q8f5d")
+
+[node name="Area2D" type="Area2D" parent="." groups=["cauldrons"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6sb2h")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
