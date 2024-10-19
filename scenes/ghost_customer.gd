@@ -18,11 +18,12 @@ var Money
 var Purchase_Request = false
 var Potion_Wanted
 
-var Potion1
+var potion_type: int  # Set this to represent the potion type
+
 var Potion2
 var Potion3
 
-signal Potion1_Collected
+signal potion_received(potion_type)
 signal Potion2_Collected
 signal Potion3_Collected
 
@@ -30,24 +31,28 @@ signal Potion3_Collected
 enum {
 	IDLE,
 	MOVE,
-	NEW_DIR
+	NEW_DIR,
+	WAITING_FOR_ORDER,
 #Satisfied,
 #Unsatisfied
-}
-
+}	
 func _ready():
 	randomize()
 	Start_Pos = position
+#$CustomerArea.connect("potion_received", self, "_on_potion_received")
 
 func _process(delta):
-	if Current_State == 0 or Current_State == 1:
-		$AnimatedSprite2D.play('Idle')
-	elif Current_State== 2 and !Is_Talking:
-		if Dir.x == -1: $AnimatedSprite2D.play("Unsatisfied")
-		if Dir.x == 1: $AnimatedSprite2D.play("Satisfied")
-		if Dir.y == -1: $AnimatedSprite2D.play("Idle")
-		if Dir.y == 1: $AnimatedSprite2D.play("Idle")
+	if Current_State == IDLE:
+		# If you want to add effects or animations, you can do so here
+		pass
 
+	# Check for player input to interact with the ghost customer
+	if Input.is_action_just_pressed("chat"):
+		if !Is_Talking:
+			Is_Talking = true
+			AskForPotion()
+
+'''
 	if Is_Roaming: 
 		match Current_State:
 			IDLE:
@@ -56,21 +61,22 @@ func _process(delta):
 				Dir = Choose([Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN])
 			MOVE:
 				Move(delta)
-				
+
 	if Input.is_action_just_pressed("chat"):
 		print ("Chatting---")
 		$Dialogue.Start()
-		Is_Roaming = false
+	#Is_Roaming = false
 		Is_Talking = true
 		$AmimatedSprite2D.play("Idle")
 		
 	if Input.is_action_just_pressed("order"):
 		print("Order Recieved")
 		$Customer_Order.Next_Order()
-		Is_Roaming = false
+#	Is_Roaming = false
 		Is_Talking = true
 		$AnimatedSprite2D.play("Idle")
-'''
+		
+
 if Potion_Given:
 		match Current_State:
 			IDLE: pass
@@ -79,6 +85,9 @@ if Potion_Given:
 '''
 #if Purchase_Request == true:
 #	Potion_Wanted = Choose([Vector2.Potion1, Vector2.Potion2, Vector2.Potion3])
+func AskForPotion():
+	print("Ghost Customer: Please drag and drop a potion for me!")
+	# Additional UI logic could go here (like showing a prompt on the screen)
  
 func Choose(array): #pick potion
 	array.shuffle()
@@ -104,10 +113,17 @@ func _on_timer_timeout() -> void:
 
 
 func _on_dialogue_dialogue_finished() -> void:
-		Is_Talking = false
-		Is_Roaming = true
+		Is_Talking = false#
+#	Is_Roaming = true
 
 
 func _on_customer_order_order_log_closed() -> void:
 	Is_Talking = false
-	Is_Roaming = true
+#Is_Roaming = true
+
+func _on_drop_area_body_entered(body):
+	if body.is_in_group("ghost_customers"):  # Ensure this matches your ghost customer group
+		emit_signal("potion_received", potion_type)  # Emit signal when dropped
+		
+func ResetTalking():
+	Is_Talking = false

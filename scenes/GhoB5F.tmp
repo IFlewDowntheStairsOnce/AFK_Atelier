@@ -68,8 +68,7 @@ radius = 1185.44
 radius = 1295.0
 
 [node name="Ghost_Customer" type="CharacterBody2D"]
-position = Vector2(553, 400)
-scale = Vector2(0.134281, 0.134281)
+position = Vector2(832, 1549)
 script = ExtResource("1_18dcr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -92,10 +91,8 @@ shape = SubResource("CircleShape2D_gmpva")
 autostart = true
 
 [node name="Dialogue" parent="." instance=ExtResource("5_g14yc")]
-metadata/_edit_use_anchors_ = true
 
 [node name="Customer_Order" parent="." instance=ExtResource("6_mhk1x")]
-metadata/_edit_use_anchors_ = true
 
 [node name="Potion1" parent="." instance=ExtResource("7_g7xqj")]
 position = Vector2(1680, -624)
