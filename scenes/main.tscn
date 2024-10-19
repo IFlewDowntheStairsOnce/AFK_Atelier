@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://dyw8kocxyhvqd"]
+[gd_scene load_steps=4 format=3 uid="uid://dyw8kocxyhvqd"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_6qw2n"]
+[ext_resource type="PackedScene" uid="uid://7ltgkqo1p1n6" path="res://scenes/generics/generic_ingredient.tscn" id="1_ke3q3"]
+[ext_resource type="PackedScene" uid="uid://davwn74ysxkvq" path="res://scenes/generics/generic_cauldron.tscn" id="2_lt8my"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_6qw2n")
+
+[node name="cauldron" parent="." instance=ExtResource("2_lt8my")]
+position = Vector2(586, 318)
+
+[node name="Generic Ingredient" parent="." instance=ExtResource("1_ke3q3")]
+position = Vector2(587, 147)
+id = 1
+initial_position = Vector2(587, 147)
