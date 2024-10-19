@@ -4,12 +4,15 @@ extends Node2D
 @export var initial_position : Vector2
 var selected = false
 var inside_cauldron = false
+@onready var splash_sound = $splash_AudioStreamPlayer2D
+@onready var grab_sound = $grab_AudioStreamPlayer2D
 
 signal add_ingredient
 
 # Ingredient is selected when the left mouse button is clicked inside its Area2d.
 func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
 	if Input.is_action_just_pressed("click"):
+		grab_sound.play()
 		selected = true
 
 # Ingredient is unselected when the left mouse button is released.
@@ -19,6 +22,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("click"):
 		selected = false
 		if inside_cauldron:
+			splash_sound.play()
 			emit_signal("add_ingredient", id)
 			global_position = initial_position
 		else:
