@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3lpw02h6qup5"]
+[gd_scene load_steps=13 format=3 uid="uid://c3lpw02h6qup5"]
 
 [ext_resource type="Script" path="res://scenes/ghost_customer.gd" id="1_18dcr"]
 [ext_resource type="Texture2D" uid="uid://bd76olx88trgl" path="res://art/characters/Ghost_Customer/Ghost_Customer_Neutral.png" id="1_mq50i"]
 [ext_resource type="Texture2D" uid="uid://4evkibdchmmn" path="res://art/characters/Ghost_Customer/Ghost_Customer_Satisfied.png" id="2_4i7ev"]
 [ext_resource type="Texture2D" uid="uid://cnyjrsgh3f7x8" path="res://art/characters/Ghost_Customer/Ghost_Customer_Unsatisfied.png" id="3_d1g4w"]
-[ext_resource type="PackedScene" uid="uid://mt8p7n8myi7y" path="res://dialogue/dialogue.tscn" id="5_g14yc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_is1cb"]
 atlas = ExtResource("1_mq50i")
@@ -60,7 +59,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ws543"]
-radius = 1185.44
+radius = 422.063
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmpva"]
 radius = 1295.0
@@ -75,7 +74,7 @@ animation = &"Unsatisfied"
 frame_progress = 0.998148
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-264, -192)
+visible = false
 shape = SubResource("CircleShape2D_ws543")
 one_way_collision_margin = 0.0
 
@@ -88,9 +87,6 @@ shape = SubResource("CircleShape2D_gmpva")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="Dialogue" parent="." instance=ExtResource("5_g14yc")]
-
 [connection signal="body_entered" from="Chat_Detection_Area" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="Chat_Detection_Area" to="." method="_on_chat_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="Dialogue_Finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]

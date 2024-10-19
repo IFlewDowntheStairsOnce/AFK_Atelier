@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://mt8p7n8myi7y"]
+
+[ext_resource type="Script" path="res://dialogue/dialogueplayer.gd" id="1_bimgn"]
+[ext_resource type="Texture2D" uid="uid://dh8yath8lymqm" path="res://art/UI/inventory-slot.png" id="1_taip3"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bimgn")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -2366.0
+offset_top = -2725.0
+offset_right = 2242.0
+offset_bottom = -1601.0
+texture = ExtResource("1_taip3")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 18.0
+offset_right = 227.0
+offset_bottom = 41.0
+scale = Vector2(15, 15)
+text = "Customer:"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 386.0
+offset_right = 532.0
+offset_bottom = 433.0
+scale = Vector2(12.5, 12.5)
+text = "Chat Test"

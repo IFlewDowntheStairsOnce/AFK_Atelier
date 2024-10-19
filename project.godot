@@ -11,5 +11,13 @@ config_version=5
 [application]
 
 config/name="AFK Atalier"
+run/main_scene="res://scenes/Ghost_Customer.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[input]
+
+chat={
+"deadzone": 0.5,
+"events": []
+}
