@@ -98,7 +98,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Potion1" parent="." instance=ExtResource("7_g7xqj")]
-position = Vector2(1680, -624)
+position = Vector2(1504.31, -409.589)
 
 [connection signal="body_entered" from="Chat_Detection_Area" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="Chat_Detection_Area" to="." method="_on_chat_detection_area_body_exited"]
