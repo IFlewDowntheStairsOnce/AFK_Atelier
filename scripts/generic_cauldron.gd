@@ -3,6 +3,7 @@ extends Node2D
 var ingredient_list = []
 var potion_id : int
 var brewing = false
+@onready var bubbling_sound = $bubbling_AudioStreamPlayer2D
 
 func _ready():
 	add_to_group("cauldrons")
@@ -14,6 +15,7 @@ func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: in
 
 func _physics_process(delta: float) -> void:
 	if brewing:
+		bubbling_sound.play()
 		var sum = 0
 		for i in ingredient_list:	# Add ingredient ids together
 			sum += i
