@@ -10,7 +10,15 @@ script = ExtResource("1_6qw2n")
 [node name="cauldron" parent="." instance=ExtResource("2_lt8my")]
 position = Vector2(586, 318)
 
-[node name="Generic Ingredient" parent="." instance=ExtResource("1_ke3q3")]
+[node name="ingredient" parent="." instance=ExtResource("1_ke3q3")]
 position = Vector2(587, 147)
 id = 1
 initial_position = Vector2(587, 147)
+
+[node name="ingredient2" parent="." instance=ExtResource("1_ke3q3")]
+position = Vector2(595, 498)
+id = 2
+initial_position = Vector2(595, 498)
+
+[connection signal="add_ingredient" from="ingredient" to="cauldron" method="_on_ingredient_add_ingredient"]
+[connection signal="add_ingredient" from="ingredient2" to="cauldron" method="_on_ingredient_2_add_ingredient"]

@@ -5,7 +5,7 @@ extends Node2D
 var selected = false
 var inside_cauldron = false
 
-signal add_ingredient(id)
+signal add_ingredient
 
 # Ingredient is selected when the left mouse button is clicked inside its Area2d.
 func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
