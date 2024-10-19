@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cnyjrsgh3f7x8" path="res://art/characters/Ghost_Customer/Ghost_Customer_Unsatisfied.png" id="3_d1g4w"]
 [ext_resource type="PackedScene" uid="uid://mt8p7n8myi7y" path="res://dialogue/dialogue.tscn" id="5_g14yc"]
 [ext_resource type="PackedScene" uid="uid://gs3a2ibhqla" path="res://dialogue/customer_order.tscn" id="6_mhk1x"]
-[ext_resource type="PackedScene" uid="uid://bwdwgtimpn1hw" path="res://dialogue/potion_1.tscn" id="7_g7xqj"]
+[ext_resource type="PackedScene" uid="uid://bwdwgtimpn1hw" path="res://scenes/potion_1.tscn" id="7_g7xqj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_is1cb"]
 atlas = ExtResource("1_mq50i")
