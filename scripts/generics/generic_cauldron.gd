@@ -7,6 +7,7 @@ var brewing = false
 @onready var scrum_potion = preload("res://scenes/potions/scrum_potion.tscn")
 
 signal brew_scrum
+signal brew_pink
 
 func _ready():
 	add_to_group("cauldrons")
@@ -34,6 +35,8 @@ func create_potion(potion_id) -> void:
 	match potion_id:
 		3:
 			emit_signal("brew_scrum")
+		7:
+			emit_signal("brew_pink")
 		_:
 			print("this potion don't exist!!!")
 

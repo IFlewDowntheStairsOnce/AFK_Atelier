@@ -1,22 +1,23 @@
 [gd_scene load_steps=5 format=3 uid="uid://davwn74ysxkvq"]
 
-[ext_resource type="Texture2D" uid="uid://bsutrvwydgpho" path="res://assets/pngs/temp_cauldron.png" id="1_q8f5d"]
 [ext_resource type="Script" path="res://scripts/generics/generic_cauldron.gd" id="1_qswpq"]
+[ext_resource type="Texture2D" uid="uid://ytenq7fdaji6" path="res://art/enviorment/cauldronsprite.png" id="2_hhuxx"]
 [ext_resource type="AudioStream" uid="uid://87eot30v1clq" path="res://assets/mp3s/cauldron-bubbling-1-232444.mp3" id="3_d3juq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6sb2h"]
-radius = 72.6911
+radius = 45.2769
 
 [node name="cauldron" type="Node2D"]
 script = ExtResource("1_qswpq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.249266, 0.248)
-texture = ExtResource("1_q8f5d")
+texture = ExtResource("2_hhuxx")
 
 [node name="Area2D" type="Area2D" parent="." groups=["cauldrons"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 24)
 shape = SubResource("CircleShape2D_6sb2h")
 
 [node name="bubbling_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
