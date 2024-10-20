@@ -1,6 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://bjd2d8ewc88jo"]
+[gd_scene load_steps=23 format=3 uid="uid://c3lpw02h6qup5"]
 
-[ext_resource type="Script" path="res://scenes/generic_customer.gd" id="1_bba5b"]
+[ext_resource type="Script" path="res://scripts/generic_customer.gd" id="1_bba5b"]
 [ext_resource type="Texture2D" uid="uid://bd76olx88trgl" path="res://art/characters/Customer/Ghost_Customer_Neutral.png" id="1_mq50i"]
 [ext_resource type="Texture2D" uid="uid://4evkibdchmmn" path="res://art/characters/Customer/Ghost_Customer_Satisfied.png" id="2_4i7ev"]
 [ext_resource type="Texture2D" uid="uid://c8ja7lun4oq2p" path="res://art/characters/Customer/ghost1.png" id="2_lh8b1"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://mt8p7n8myi7y" path="res://dialogue/dialogue.tscn" id="5_g14yc"]
 [ext_resource type="Texture2D" uid="uid://cqjc17l63hxx3" path="res://art/characters/Customer/ghost3.png" id="5_r8v8s"]
 [ext_resource type="PackedScene" uid="uid://gs3a2ibhqla" path="res://dialogue/customer_order.tscn" id="6_mhk1x"]
-[ext_resource type="PackedScene" uid="uid://bwdwgtimpn1hw" path="res://scenes/potion_1.tscn" id="7_g7xqj"]
+[ext_resource type="PackedScene" uid="uid://dbrh6hwmb7ehq" path="res://scenes/potion_1.tscn" id="7_g7xqj"]
 [ext_resource type="Texture2D" uid="uid://dh8yath8lymqm" path="res://art/UI/inventory-slot.png" id="8_piigt"]
 [ext_resource type="Texture2D" uid="uid://b5k2ogdlx6xm7" path="res://art/cauldron/cauldronsprite.png" id="9_pit63"]
 [ext_resource type="Texture2D" uid="uid://baiylkqienkgb" path="res://art/characters/Customer/ghost4.png" id="9_vvewo"]

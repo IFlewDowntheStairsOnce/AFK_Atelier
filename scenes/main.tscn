@@ -1,7 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyw8kocxyhvqd"]
+[gd_scene load_steps=5 format=3 uid="uid://cbf4tj8lvt55n"]
 
-[ext_resource type="PackedScene" uid="uid://bjd2d8ewc88jo" path="res://scenes/Ghost_Customer.tscn" id="1_dd7t5"]
+[ext_resource type="PackedScene" uid="uid://c3lpw02h6qup5" path="res://scenes/Ghost_Customer.tscn" id="1_dd7t5"]
+[ext_resource type="PackedScene" uid="uid://e8w2h5y26aov" path="res://scenes/generic_customer.tscn" id="2_6a52a"]
+[ext_resource type="PackedScene" uid="uid://br8wjok7iievc" path="res://scenes/potion_1.tscn" id="3_aqm07"]
+[ext_resource type="Script" path="res://scripts/money.gd" id="4_ec6np"]
 
 [node name="main" type="Node2D"]
 
 [node name="Ghost_Customer" parent="." instance=ExtResource("1_dd7t5")]
+visible = false
+
+[node name="customer" parent="." instance=ExtResource("2_6a52a")]
+position = Vector2(535, 164)
+scale = Vector2(0.107598, 0.107598)
+expected_id = 0
+
+[node name="potion" parent="." instance=ExtResource("3_aqm07")]
+position = Vector2(881, 365)
+
+[node name="money" type="Node" parent="."]
+script = ExtResource("4_ec6np")
+
+[connection signal="disatisfied" from="customer" to="money" method="_on_customer_disatisfied"]
+[connection signal="satisfied" from="customer" to="money" method="_on_customer_satisfied"]
+[connection signal="give_potion" from="potion" to="customer" method="_on_give_potion"]
