@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://btf4o8fpbbxy3"]
+[gd_scene load_steps=6 format=3 uid="uid://c3t2epavk8sr2"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_6qw2n"]
 [ext_resource type="PackedScene" uid="uid://davwn74ysxkvq" path="res://scenes/generics/generic_cauldron.tscn" id="2_lt8my"]
 [ext_resource type="PackedScene" uid="uid://g2ob6pmolig7" path="res://scenes/ingredients/nail.tscn" id="3_4v6n6"]
 [ext_resource type="PackedScene" uid="uid://bv27iiv00pfo2" path="res://scenes/ingredients/tooth.tscn" id="3_urafa"]
-[ext_resource type="PackedScene" uid="uid://ds0yfjisanubh" path="res://scenes/trash.tscn" id="5_t1x00"]
+[ext_resource type="PackedScene" path="res://scenes/trash.tscn" id="5_t1x00"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_6qw2n")
