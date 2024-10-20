@@ -1,19 +1,21 @@
 [gd_scene load_steps=6 format=3 uid="uid://bv27iiv00pfo2"]
 
 [ext_resource type="Script" path="res://scripts/generics/generic_ingredient.gd" id="1_cj654"]
-[ext_resource type="Texture2D" uid="uid://b7alt8gsq32r8" path="res://assets/pngs/temp_ingredient.png" id="2_181cb"]
+[ext_resource type="Texture2D" uid="uid://c1wnvdhh7i811" path="res://art/ingredient/tooth_fairy_molar.png" id="2_nprcq"]
 [ext_resource type="AudioStream" uid="uid://s6aie3bipc10" path="res://assets/mp3s/splash-6213.mp3" id="3_bwl0n"]
 [ext_resource type="AudioStream" uid="uid://b0rk3c76i05xu" path="res://assets/mp3s/grab1.mp3" id="4_0dih2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_12p7k"]
+radius = 9.35195
+height = 38.4188
 
 [node name="tooth" type="Node2D"]
 script = ExtResource("1_cj654")
 id = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_181cb")
+scale = Vector2(0.163, 0.163)
+texture = ExtResource("2_nprcq")
 
 [node name="Area2D" type="Area2D" parent="." groups=["ingredients"]]
 

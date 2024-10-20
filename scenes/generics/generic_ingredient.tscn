@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://s6aie3bipc10" path="res://assets/mp3s/splash-6213.mp3" id="3_5jbpv"]
 [ext_resource type="AudioStream" uid="uid://b0rk3c76i05xu" path="res://assets/mp3s/grab1.mp3" id="4_qx11h"]
 
-[node name="ingredient" type="Node2D"]
+[node name="ingredient" type="Node2D" groups=["ingredients"]]
 script = ExtResource("1_dxjh5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

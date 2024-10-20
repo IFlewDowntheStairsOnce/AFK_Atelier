@@ -61,8 +61,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ws543"]
 radius = 422.063
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gmpva"]
-radius = 1295.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvamn"]
 
 [node name="Ghost_Customer" type="CharacterBody2D" groups=["customers"]]
 script = ExtResource("1_vl161")
@@ -80,8 +79,9 @@ one_way_collision_margin = 0.0
 [node name="Potion_Detection_Area" type="Area2D" parent="." groups=["customers"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Potion_Detection_Area"]
-position = Vector2(-249, -206)
-shape = SubResource("CircleShape2D_gmpva")
+position = Vector2(-215, -1070)
+scale = Vector2(56.8875, 56.8875)
+shape = SubResource("RectangleShape2D_wvamn")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
