@@ -4,6 +4,7 @@ extends Control
 
 signal Order_Log_Closed
 signal Order1_Made
+signal Order1_Complete
 var Time_left
 var minuite
 var second
@@ -15,6 +16,9 @@ var Customer_Potion_Request = 0
 
 #unc _ready():
 #$CustomerArea.connect("potion_received", self, "_on_potion_received")
+
+func start_dialogue():
+	return
 
 func _on_potion_received(potion_type):
 	if Order1_Active:
@@ -43,6 +47,7 @@ func _process(delta):
 		if timer.time_left <= 0:
 			Order1_Active = false
 			print("Order1 failed due to timeout.")
+			emit_signal("Order1_Done")
 	#if Order2_Active():
 
 func Order1_Chat():

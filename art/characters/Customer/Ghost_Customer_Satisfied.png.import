@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gmpf7si6cve8"
-path="res://.godot/imported/ghost2.png-80f5238b619f0856cd74cb104eec2c2f.ctex"
+uid="uid://4evkibdchmmn"
+path="res://.godot/imported/Ghost_Customer_Satisfied.png-e275594b86ba8314851b97501c645442.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/Ghost_Customer/ghost2.png"
-dest_files=["res://.godot/imported/ghost2.png-80f5238b619f0856cd74cb104eec2c2f.ctex"]
+source_file="res://art/characters/Customer/Ghost_Customer_Satisfied.png"
+dest_files=["res://.godot/imported/Ghost_Customer_Satisfied.png-e275594b86ba8314851b97501c645442.ctex"]
 
 [params]
 

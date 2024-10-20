@@ -162,7 +162,6 @@ position = Vector2(-1563.88, 558.53)
 scale = Vector2(4.13929, 4.13929)
 texture = ExtResource("9_pit63")
 
-[connection signal="Order1_Done" from="." to="." method="_on_order_1_done"]
 [connection signal="Order_Log_Closed" from="." to="." method="_on_order_log_closed"]
 [connection signal="potion_received" from="." to="." method="_on_potion_received"]
 [connection signal="body_entered" from="Chat_Detection_Area" to="." method="_on_chat_detection_area_body_entered"]

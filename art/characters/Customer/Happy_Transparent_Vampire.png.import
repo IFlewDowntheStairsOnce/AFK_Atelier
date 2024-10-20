@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baiylkqienkgb"
-path="res://.godot/imported/ghost4.png-e111819bcda29851c3b885738db1d3a8.ctex"
+uid="uid://djj0yxlskykh3"
+path="res://.godot/imported/Happy_Transparent_Vampire.png-d7a33a8ebe6b99ca4054c98203f69bd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/Ghost_Customer/ghost4.png"
-dest_files=["res://.godot/imported/ghost4.png-e111819bcda29851c3b885738db1d3a8.ctex"]
+source_file="res://art/characters/Customer/Happy_Transparent_Vampire.png"
+dest_files=["res://.godot/imported/Happy_Transparent_Vampire.png-d7a33a8ebe6b99ca4054c98203f69bd5.ctex"]
 
 [params]
 

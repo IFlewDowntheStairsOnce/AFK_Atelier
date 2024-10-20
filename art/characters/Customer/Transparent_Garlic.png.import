@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4evkibdchmmn"
-path="res://.godot/imported/Ghost_Customer_Satisfied.png-5c7c8b148e33c7706ad5b3bb76531d94.ctex"
+uid="uid://b3ee432unqgyb"
+path="res://.godot/imported/Transparent_Garlic.png-6ceaa4e64517da0152692f6b1ac0c839.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/characters/Ghost_Customer/Ghost_Customer_Satisfied.png"
-dest_files=["res://.godot/imported/Ghost_Customer_Satisfied.png-5c7c8b148e33c7706ad5b3bb76531d94.ctex"]
+source_file="res://art/characters/Customer/Transparent_Garlic.png"
+dest_files=["res://.godot/imported/Transparent_Garlic.png-6ceaa4e64517da0152692f6b1ac0c839.ctex"]
 
 [params]
 
