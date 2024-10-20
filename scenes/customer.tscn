@@ -68,6 +68,7 @@ radius = 422.063
 script = ExtResource("1_vl161")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3824, -56)
 sprite_frames = SubResource("SpriteFrames_vpd8h")
 animation = &"Unsatisfied"
 frame_progress = 0.236699
@@ -97,9 +98,9 @@ shape = SubResource("RectangleShape2D_wvamn")
 autostart = true
 
 [node name="Dialogue" parent="." instance=ExtResource("5_bi13k")]
-offset_left = -2269.99
-offset_top = 924.995
-offset_right = -2229.99
-offset_bottom = 964.995
+offset_left = 1690.0
+offset_top = 653.0
+offset_right = 1730.0
+offset_bottom = 693.0
 
 [connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]
