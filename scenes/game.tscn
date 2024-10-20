@@ -1,16 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3t2epavk8sr2"]
+[gd_scene load_steps=9 format=3 uid="uid://c3t2epavk8sr2"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_6qw2n"]
 [ext_resource type="PackedScene" uid="uid://davwn74ysxkvq" path="res://scenes/generics/generic_cauldron.tscn" id="2_lt8my"]
 [ext_resource type="PackedScene" uid="uid://g2ob6pmolig7" path="res://scenes/ingredients/nail.tscn" id="3_4v6n6"]
 [ext_resource type="PackedScene" uid="uid://bv27iiv00pfo2" path="res://scenes/ingredients/tooth.tscn" id="3_urafa"]
 [ext_resource type="PackedScene" path="res://scenes/trash.tscn" id="5_t1x00"]
+[ext_resource type="PackedScene" uid="uid://c3lpw02h6qup5" path="res://scenes/customer.tscn" id="6_trjy6"]
+[ext_resource type="PackedScene" uid="uid://4rgo4ie3wbk3" path="res://scenes/potions/scrum_potion.tscn" id="7_3mxeq"]
+[ext_resource type="PackedScene" uid="uid://dudj5rekpge3v" path="res://scenes/money.tscn" id="8_h141m"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_6qw2n")
 
 [node name="cauldron" parent="." groups=["cauldrons"] instance=ExtResource("2_lt8my")]
-position = Vector2(586, 530)
+position = Vector2(563, 554)
 
 [node name="tooth" parent="." groups=["ingredients"] instance=ExtResource("3_urafa")]
 position = Vector2(760, 400)
@@ -24,5 +27,19 @@ initial_position = Vector2(860, 400)
 position = Vector2(199, 506)
 scale = Vector2(0.406633, 0.406633)
 
+[node name="Ghost_Customer" parent="." instance=ExtResource("6_trjy6")]
+position = Vector2(582, 171)
+scale = Vector2(0.0800006, 0.0800006)
+
+[node name="scrum potion" parent="." instance=ExtResource("7_3mxeq")]
+position = Vector2(563, 553)
+initial_position = Vector2(563, 553)
+
+[node name="money" parent="." instance=ExtResource("8_h141m")]
+
+[connection signal="brew_scrum" from="cauldron" to="scrum potion" method="_on_cauldron_brew_scrum"]
 [connection signal="add_ingredient" from="tooth" to="cauldron" method="_on_add_ingredient"]
 [connection signal="add_ingredient" from="nail" to="cauldron" method="_on_add_ingredient"]
+[connection signal="disatisfied" from="Ghost_Customer" to="money" method="_on_ghost_customer_disatisfied"]
+[connection signal="satisfied" from="Ghost_Customer" to="money" method="_on_ghost_customer_satisfied"]
+[connection signal="give_potion" from="scrum potion" to="Ghost_Customer" method="_on_give_potion"]

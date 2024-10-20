@@ -7,9 +7,13 @@ script/source = "extends Node2D
 
 signal give_potion()
 @export var id : int = 0
+@export var initial_position : Vector2
 var selected = false
 var in_customer = false
 var in_trash = false
+
+func _ready():
+	hide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group(\"customers\"):
@@ -35,9 +39,11 @@ func _input(_event: InputEvent) -> void:
 		if in_customer:
 			print(\"in customer\")
 			emit_signal(\"give_potion\", id)
-			queue_free()
+			hide()
+			global_position = initial_position
 		if in_trash:
-			queue_free()
+			hide()
+			global_position = initial_position
 
 # Potion follows the mouse while it is selected
 func _physics_process(delta: float) -> void:
@@ -53,6 +59,9 @@ func _on_area_2d_mouse_entered() -> void:
 func _on_area_2d_mouse_exited() -> void:
 	if not selected:
 		scale = Vector2(1, 1) 
+
+func _on_cauldron_brew_scrum() -> void:
+	show()
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mddr1"]
