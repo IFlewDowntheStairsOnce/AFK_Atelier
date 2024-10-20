@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dag26cppfxbo2"]
+[gd_scene load_steps=4 format=3 uid="uid://dag26cppfxbo2"]
 
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_xsxa8"]
 [ext_resource type="Texture2D" uid="uid://bagw1jve4lu5s" path="res://assets/pngs/menu_background.png" id="2_actym"]
+[ext_resource type="Texture2D" uid="uid://w16qplrucup7" path="res://assets/pngs/octgamejam2024witch.png" id="3_gvcvb"]
 
 [node name="mainMenu" type="Control"]
 layout_mode = 3
@@ -17,14 +18,19 @@ position = Vector2(780, 325)
 scale = Vector2(1.2915, 1.2915)
 texture = ExtResource("2_actym")
 
+[node name="Sprite2D" type="Sprite2D" parent="MenuBackground"]
+position = Vector2(-273.326, 92.9152)
+scale = Vector2(0.229537, 0.229537)
+texture = ExtResource("3_gvcvb")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-offset_left = 14.0
-offset_top = 3.0
-offset_right = 84.0
-offset_bottom = 26.0
-scale = Vector2(10.0497, 10.0497)
-text = "TITLE"
+offset_left = 8.0
+offset_top = 77.0
+offset_right = 138.0
+offset_bottom = 100.0
+scale = Vector2(3.328, 3.328)
+text = "Covenstead Cafe"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0

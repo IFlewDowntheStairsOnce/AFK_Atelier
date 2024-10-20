@@ -6,6 +6,9 @@ var brewing = false
 @onready var bubbling_sound = $bubbling_AudioStreamPlayer2D
 @onready var scrum_potion = preload("res://scenes/potions/scrum_potion.tscn")
 
+signal brew_scrum
+signal brew_pink
+
 func _ready():
 	add_to_group("cauldrons")
 
@@ -31,9 +34,9 @@ func sum(ingredient_list) -> int:
 func create_potion(potion_id) -> void:
 	match potion_id:
 		3:
-			var potion = scrum_potion.instantiate()
-			potion.position = position
-			get_parent().add_child(potion)
+			emit_signal("brew_scrum")
+		7:
+			emit_signal("brew_pink")
 		_:
 			print("this potion don't exist!!!")
 

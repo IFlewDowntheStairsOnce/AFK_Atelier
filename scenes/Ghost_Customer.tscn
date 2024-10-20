@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3lpw02h6qup5"]
+[gd_scene load_steps=13 format=3 uid="uid://b3f33e5mk5t1n"]
 
 [ext_resource type="Script" path="res://scenes/ghost_customer.gd" id="1_18dcr"]
 [ext_resource type="Texture2D" uid="uid://cvkci6vpca74v" path="res://art/character/Ghost_Customer/Ghost_Customer_Neutral.png" id="1_mq50i"]

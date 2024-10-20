@@ -1,0 +1,106 @@
+[gd_scene load_steps=14 format=3 uid="uid://c3lpw02h6qup5"]
+
+[ext_resource type="Script" path="res://scenes/customer.gd" id="1_vl161"]
+[ext_resource type="Texture2D" uid="uid://cvkci6vpca74v" path="res://art/character/Ghost_Customer/Ghost_Customer_Neutral.png" id="2_dwplx"]
+[ext_resource type="Texture2D" uid="uid://d20ar63la3v5v" path="res://art/character/Ghost_Customer/Ghost_Customer_Satisfied.png" id="3_duu43"]
+[ext_resource type="Texture2D" uid="uid://gsfw3ecx17p8" path="res://art/character/Ghost_Customer/Ghost_Customer_Unsatisfied.png" id="4_2du2q"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue.tscn" id="5_bi13k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is1cb"]
+atlas = ExtResource("2_dwplx")
+region = Rect2(0, 0, 2250, 3000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckuvr"]
+atlas = ExtResource("2_dwplx")
+region = Rect2(0, 0, 2250, 3000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmvam"]
+atlas = ExtResource("3_duu43")
+region = Rect2(0, 0, 2250, 3000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn0r1"]
+atlas = ExtResource("2_dwplx")
+region = Rect2(0, 0, 2250, 3000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvboc"]
+atlas = ExtResource("4_2du2q")
+region = Rect2(0, 0, 2250, 3000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpd8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is1cb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckuvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmvam")
+}],
+"loop": true,
+"name": &"Satisfied",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn0r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvboc")
+}],
+"loop": true,
+"name": &"Unsatisfied",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ws543"]
+radius = 422.063
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvamn"]
+
+[node name="Ghost_Customer" type="CharacterBody2D" groups=["customers"]]
+script = ExtResource("1_vl161")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3824, -56)
+sprite_frames = SubResource("SpriteFrames_vpd8h")
+animation = &"Unsatisfied"
+frame_progress = 0.236699
+
+[node name="Start_Position" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(-489.96, -444.998)
+
+[node name="Desk_Position" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(-3823.96, -174.998)
+
+[node name="End_Position" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(-8009.96, -195.998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_ws543")
+one_way_collision_margin = 0.0
+
+[node name="Potion_Detection_Area" type="Area2D" parent="." groups=["customers"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Potion_Detection_Area"]
+position = Vector2(-215, -1070)
+scale = Vector2(56.8875, 56.8875)
+shape = SubResource("RectangleShape2D_wvamn")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Dialogue" parent="." instance=ExtResource("5_bi13k")]
+offset_left = 1690.0
+offset_top = 653.0
+offset_right = 1730.0
+offset_bottom = 693.0
+
+[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]

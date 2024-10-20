@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://4rgo4ie3wbk3"]
+[gd_scene load_steps=4 format=3 uid="uid://dvsobut34y2dy"]
 
-[ext_resource type="Texture2D" uid="uid://dv4td8ndu0mo5" path="res://assets/pngs/potionbottle.png" id="1_ioff1"]
+[ext_resource type="Texture2D" uid="uid://dxxiadg7mgf0g" path="res://art/pinkpotion.png" id="1_bjf5i"]
 
 [sub_resource type="GDScript" id="GDScript_2ypic"]
 script/source = "extends Node2D
@@ -60,7 +60,7 @@ func _on_area_2d_mouse_exited() -> void:
 	if not selected:
 		scale = Vector2(1, 1) 
 
-func _on_cauldron_brew_scrum() -> void:
+func _on_cauldron_brew_pink() -> void:
 	show()
 "
 
@@ -73,7 +73,7 @@ scale = Vector2(0.505, 0.505)
 script = SubResource("GDScript_2ypic")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ioff1")
+texture = ExtResource("1_bjf5i")
 
 [node name="Area2D" type="Area2D" parent="." groups=["potions"]]
 
