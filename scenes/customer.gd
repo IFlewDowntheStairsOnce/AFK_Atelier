@@ -44,6 +44,7 @@ func _process(delta):
 	if $AnimatedSprite2D.global_position ==Start_Pos:
 		Is_Roaming = true
 		Move_to_Desk(delta)
+		$Dialogue.start()
 	
 	if Input.is_action_just_pressed("chat"):
 		Is_Roaming = false

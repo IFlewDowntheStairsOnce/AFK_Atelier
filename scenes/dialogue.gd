@@ -2,6 +2,8 @@ extends Control
 
 signal dialogue_finished
 
+@onready var label = $Label
+@onready var timer = $Timer
 @export_file("*.json") var d_file
 
 var d_active = false
@@ -9,17 +11,29 @@ var dialogue = []
 var current_dialogue_id = 0
 
 func _ready():
+	timer.start()
 	$NinePatchRect.visible = false
+	label.visible = false
+	
+func displayclock(delta):
+	label.text.visible = true
+	label.text = "%02d:%02d" % time_left() 
 	
 func start():
 	if d_active:
 		return
 	d_active = true
-	await get_tree().create_timer(1).timeout
-	$NinePatchRect.visible = true 
+	await get_tree().create_timer(5).timeout
+	$NinePatchRect.visible = true
 	dialogue = load_dialogue()
 	current_dialogue_id = -1
 	next_script()
+	
+func time_left():
+	var time_left = timer.time_left
+	var minuite = floor(time_left/60)
+	var seconds = int(time_left)%60
+	return[minuite, seconds]
 	
 func load_dialogue():
 	var file = FileAccess.open("res://scripts/Customer_dialouge1.json", FileAccess.READ)
