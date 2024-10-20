@@ -1,6 +1,7 @@
 extends Node2D
 
 signal give_potion(id)
+signal potion_recieved(id)
 @export var id : int = 0
 var selected = false
 var in_customer = false
@@ -29,14 +30,14 @@ func _input(_event: InputEvent) -> void:
 		if in_customer:
 			print("in customer")
 			emit_signal("give_potion", id)
-			queue_free()
+			#queue_free()
 
 # Potion follows the mouse while it is selected
 func _physics_process(delta: float) -> void:
 	if in_customer:
 		print("potion is touching customer")
 		emit_signal("potion_received", id)
-		queue_free()  # Remove the potion from the scene
+		#queue_free()  # Remove the potion from the scene
 	if selected:
 		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
 

@@ -50,15 +50,26 @@ offset_bottom = 708.0
 scale = Vector2(10, 10)
 text = "Take Order"
 
-[node name="TimeButton1" type="Button" parent="Order1_ui"]
-modulate = Color(0.529107, 0.348828, 1, 1)
-layout_mode = 0
-offset_left = 2264.0
-offset_top = 672.0
-offset_right = 2313.0
-offset_bottom = 713.0
-scale = Vector2(10, 10)
-text = "Timer?"
+[node name="Label" type="Label" parent="Order1_ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 96.0
+offset_top = 71.0
+offset_right = 889.0
+offset_bottom = 494.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.466386, 0.336496, 1, 1)
+theme_override_font_sizes/font_size = 310
+text = "00:00"
+
+[node name="Timer" type="Timer" parent="Order1_ui"]
+wait_time = 35.0
+one_shot = true
 
 [node name="Order2_ui" type="NinePatchRect" parent="."]
 visible = false
