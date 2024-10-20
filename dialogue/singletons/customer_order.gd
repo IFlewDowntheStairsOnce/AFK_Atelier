@@ -47,7 +47,7 @@ func _process(delta):
 		if timer.time_left <= 0:
 			Order1_Active = false
 			print("Order1 failed due to timeout.")
-			emit_signal("Order1_Done")
+			emit_signal("Order1_Made")
 	#if Order2_Active():
 
 func Order1_Chat():

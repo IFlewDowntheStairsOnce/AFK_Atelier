@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://gs3a2ibhqla"]
 
 [ext_resource type="Texture2D" uid="uid://dh8yath8lymqm" path="res://art/UI/inventory-slot.png" id="1_at0dc"]
-[ext_resource type="Script" path="res://dialogue/customer_order.gd" id="1_dihl4"]
+[ext_resource type="Script" path="res://dialogue/singletons/customer_order.gd" id="1_dihl4"]
 
 [node name="Customer_Order" type="Control"]
 layout_mode = 3
@@ -164,5 +164,11 @@ offset_right = 532.0
 offset_bottom = 433.0
 scale = Vector2(12.5, 12.5)
 text = "Gosh, this drink is to die for! Well, if I wasn’t already dead, that is"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(59, -509)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+one_way_collision_margin = 0.0
 
 [connection signal="pressed" from="Order1_ui/TakeOrderButton1" to="." method="_on_take_order_button_1_pressed"]

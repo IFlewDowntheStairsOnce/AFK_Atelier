@@ -117,7 +117,7 @@ script = ExtResource("1_bba5b")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5734.24, -193.624)
 sprite_frames = SubResource("SpriteFrames_vpd8h")
-animation = &"Ascended "
+animation = &"Vindicated"
 
 [node name="Desk_Position" type="Marker2D" parent="AnimatedSprite2D"]
 position = Vector2(-5860.84, 29.7883)
