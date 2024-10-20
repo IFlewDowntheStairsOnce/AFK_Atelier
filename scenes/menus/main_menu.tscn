@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dag26cppfxbo2"]
+[gd_scene load_steps=3 format=3 uid="uid://dag26cppfxbo2"]
 
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_xsxa8"]
+[ext_resource type="Texture2D" uid="uid://bagw1jve4lu5s" path="res://assets/pngs/menu_background.png" id="2_actym"]
 
 [node name="mainMenu" type="Control"]
 layout_mode = 3
@@ -11,10 +12,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xsxa8")
 
+[node name="MenuBackground" type="Sprite2D" parent="."]
+position = Vector2(780, 325)
+scale = Vector2(1.2915, 1.2915)
+texture = ExtResource("2_actym")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 14.0
+offset_top = 3.0
+offset_right = 84.0
+offset_bottom = 26.0
+scale = Vector2(10.0497, 10.0497)
+text = "TITLE"
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 112.0
+offset_top = 220.0
+offset_right = 182.0
+offset_bottom = 321.0
+scale = Vector2(3, 3)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
