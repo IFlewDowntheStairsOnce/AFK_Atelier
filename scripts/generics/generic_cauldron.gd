@@ -4,6 +4,7 @@ var ingredient_list = []
 var potion_id : int
 var brewing = false
 @onready var bubbling_sound = $bubbling_AudioStreamPlayer2D
+@onready var scrum_potion = preload("res://scenes/potions/scrum_potion.tscn")
 
 func _ready():
 	add_to_group("cauldrons")
@@ -16,20 +17,27 @@ func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: in
 func _physics_process(delta: float) -> void:
 	if brewing:
 		bubbling_sound.play()
-		var sum = 0
-		for i in ingredient_list:	# Add ingredient ids together
-			sum += i
-		potion_id = sum	# Potion id = sum of ingredient ids
-		print(potion_id)
+		potion_id = sum(ingredient_list)	# Potion id = sum of ingredient ids
+		create_potion(potion_id)
 		ingredient_list=[]	# Reset ingredient_list
 		brewing = false
 
-# Function for adding ingredient 1
-func _on_ingredient_add_ingredient(id) -> void:
-	ingredient_list.append(id)
-	print(ingredient_list)
+func sum(ingredient_list) -> int:
+	var sum = 0
+	for i in ingredient_list:	# Add ingredient ids together
+		sum += i
+	return sum
 
-# Function for adding ingredient 2
-func _on_ingredient_2_add_ingredient(id) -> void:
+func create_potion(potion_id) -> void:
+	match potion_id:
+		3:
+			var potion = scrum_potion.instantiate()
+			potion.position = position
+			get_parent().add_child(potion)
+		_:
+			print("this potion don't exist!!!")
+
+# Function for adding ingredients
+func _on_add_ingredient(id) -> void:
 	ingredient_list.append(id)
 	print(ingredient_list)
