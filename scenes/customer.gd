@@ -3,13 +3,12 @@ extends CharacterBody2D
 @export var expected_id : int = 0
 var potion
 
-signal satisfied
-signal disatisfied
 
 const Speed = 200
 var Dir = Vector2.LEFT
 var Is_Roaming = true #not added as need concept for layout to path find where to go
 var Is_Talking = false
+
 @onready var Desk_Position = $AnimatedSprite2D/Desk_Position.global_position
 @onready var End_Position = $AnimatedSprite2D/End_Position.global_position
 @onready var Start_Pos = $AnimatedSprite2D/Start_Position.global_position
@@ -21,6 +20,12 @@ enum CustomerMood {
 	NEUTRAL,
 	SATISFIED,
 	UNSATSIFIED
+}
+
+enum Customer {
+	GHOST,
+	VAMPIRE,
+	WITCH
 }
 
 func _ready():
@@ -35,11 +40,16 @@ func _process(delta):
 #if $AnimatedSprite2D.global_position 
 	if $AnimatedSprite2D.global_position !=Start_Pos:
 		Is_Roaming = true
-		Move_to_Start(delta)
+		Move_to_Desk(delta)
 	if $AnimatedSprite2D.global_position ==Start_Pos:
 		Is_Roaming = true
 		Move_to_Desk(delta)
-
+	
+	if Input.is_action_just_pressed("chat"):
+		Is_Roaming = false
+		Is_Talking = true
+		print("chat with npc")
+		$Dialogue.start()
 	
 func Move(delta):
 	if !Is_Talking:
@@ -56,6 +66,7 @@ func Move_to_Desk(delta):
 		$AnimatedSprite2D.global_position = $AnimatedSprite2D.global_position.move_toward(Desk_Position, delta*Speed)
 	if $AnimatedSprite2D.global_position == Desk_Position:
 		Is_Roaming = false
+		Is_Talking = true
 		
 		
 func Move_Away_From_Desk(delta):
@@ -78,9 +89,6 @@ func _on_give_potion(id):
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = Choose([0.5,1,1.5])
 
-func _on_dialogue_dialogue_finished() -> void:
-		Is_Talking = false#
-		
 		
 func _on_customer_order_order_log_closed() -> void:
 	Is_Talking = false
@@ -98,3 +106,7 @@ func _on_body_exited(body):
 
 func Order1_Chat():
 	$Order1_ui.visible = true
+
+func _on_dialogue_dialogue_finished():
+	Is_Roaming = true
+	Is_Talking = false

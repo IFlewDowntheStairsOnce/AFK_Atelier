@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3lpw02h6qup5"]
+[gd_scene load_steps=14 format=3 uid="uid://c2jsg7pag7h3o"]
 
 [ext_resource type="Script" path="res://scenes/customer.gd" id="1_vl161"]
 [ext_resource type="Texture2D" uid="uid://cvkci6vpca74v" path="res://art/character/Ghost_Customer/Ghost_Customer_Neutral.png" id="2_dwplx"]
 [ext_resource type="Texture2D" uid="uid://d20ar63la3v5v" path="res://art/character/Ghost_Customer/Ghost_Customer_Satisfied.png" id="3_duu43"]
 [ext_resource type="Texture2D" uid="uid://gsfw3ecx17p8" path="res://art/character/Ghost_Customer/Ghost_Customer_Unsatisfied.png" id="4_2du2q"]
+[ext_resource type="PackedScene" uid="uid://dn2762svndpqh" path="res://scenes/dialogue.tscn" id="5_bi13k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_is1cb"]
 atlas = ExtResource("2_dwplx")
@@ -71,6 +72,15 @@ sprite_frames = SubResource("SpriteFrames_vpd8h")
 animation = &"Unsatisfied"
 frame_progress = 0.236699
 
+[node name="Start_Position" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(-489.96, -444.998)
+
+[node name="Desk_Position" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(-3823.96, -174.998)
+
+[node name="End_Position" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(-8009.96, -195.998)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_ws543")
@@ -85,3 +95,11 @@ shape = SubResource("RectangleShape2D_wvamn")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Dialogue" parent="." instance=ExtResource("5_bi13k")]
+offset_left = -2269.99
+offset_top = 924.995
+offset_right = -2229.99
+offset_bottom = 964.995
+
+[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]

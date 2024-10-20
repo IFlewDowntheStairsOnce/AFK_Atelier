@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn2762svndpqh"]
+
+[ext_resource type="Texture2D" uid="uid://cydmhire4t78g" path="res://art/enviorment/inventory-slot.png" id="1_0v2wf"]
+[ext_resource type="Script" path="res://scenes/dialogue.gd" id="1_ob1e4"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1425.0
+offset_top = 914.0
+offset_right = 1465.0
+offset_bottom = 954.0
+script = ExtResource("1_ob1e4")
+metadata/_edit_group_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -853.0
+offset_top = -2096.0
+offset_right = 872.0
+offset_bottom = -1468.0
+texture = ExtResource("1_0v2wf")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 43.0
+offset_right = 359.0
+offset_bottom = 71.0
+scale = Vector2(5, 5)
+text = "Customer Name:"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 169.0
+offset_right = 322.0
+offset_bottom = 237.0
+scale = Vector2(6, 6)
+text = "chat
+"
