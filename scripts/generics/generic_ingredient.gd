@@ -15,8 +15,7 @@ func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: in
 	if Input.is_action_just_pressed("click"):
 		grab_sound.play()
 		selected = true
-		var added = false
-		print(added)
+		added = false
 
 # Ingredient is unselected when the left mouse button is released.
 # If ingredient is released inside cauldron, emit a signal with the ingredient id.
@@ -24,14 +23,17 @@ func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: in
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("click"):
 		selected = false
-		if inside_cauldron and not added:
-			splash_sound.play()
-			emit_signal("add_ingredient", id)
-			added = true
-			global_position = initial_position
+		var tween = get_tree().create_tween()
+		if inside_cauldron:
+			if not added:
+				added = true
+				splash_sound.play()
+				emit_signal("add_ingredient", id)
+				global_position = initial_position
 		else:
-			var tween = get_tree().create_tween()
+			added = false
 			tween.tween_property(self, "global_position", initial_position, 0.2).set_ease(Tween.EASE_OUT)
+		global_position = initial_position
 
 # If the ingredient enters a cauldron's Area2D, then the ingredient is inside the cauldron
 func _on_area_2d_area_entered(area: Area2D) -> void:
