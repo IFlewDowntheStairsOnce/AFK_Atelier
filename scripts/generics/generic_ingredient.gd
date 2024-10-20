@@ -4,6 +4,7 @@ extends Node2D
 @export var initial_position : Vector2
 var selected = false
 var inside_cauldron = false
+var added = false	# tracks if ingredient was already added to cauldron (fixes multi-placement bug)
 @onready var splash_sound = $splash_AudioStreamPlayer2D
 @onready var grab_sound = $grab_AudioStreamPlayer2D
 
@@ -14,6 +15,7 @@ func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: in
 	if Input.is_action_just_pressed("click"):
 		grab_sound.play()
 		selected = true
+		added = false
 
 # Ingredient is unselected when the left mouse button is released.
 # If ingredient is released inside cauldron, emit a signal with the ingredient id.
@@ -22,12 +24,16 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("click"):
 		selected = false
 		if inside_cauldron:
-			splash_sound.play()
-			emit_signal("add_ingredient", id)
-			global_position = initial_position
+			if not added:
+				added = true
+				splash_sound.play()
+				emit_signal("add_ingredient", id)
+				global_position = initial_position
 		else:
+			added = false
 			var tween = get_tree().create_tween()
 			tween.tween_property(self, "global_position", initial_position, 0.2).set_ease(Tween.EASE_OUT)
+		global_position = initial_position
 
 # If the ingredient enters a cauldron's Area2D, then the ingredient is inside the cauldron
 func _on_area_2d_area_entered(area: Area2D) -> void:
