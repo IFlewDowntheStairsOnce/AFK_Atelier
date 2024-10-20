@@ -25,6 +25,7 @@ cauldrons=""
 ingredients=""
 potions=""
 customers=""
+trash=""
 
 [input]
 
