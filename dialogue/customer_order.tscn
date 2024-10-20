@@ -11,6 +11,7 @@ offset_bottom = 40.0
 script = ExtResource("1_dihl4")
 
 [node name="Order1_ui" type="NinePatchRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -2366.0
 offset_top = -2725.0
