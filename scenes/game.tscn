@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://b783ell3euv3h" path="res://art/enviorment/Untitled930_20241020030713.png" id="2_ycjne"]
 [ext_resource type="PackedScene" uid="uid://g2ob6pmolig7" path="res://scenes/ingredients/nail.tscn" id="3_4v6n6"]
 [ext_resource type="PackedScene" uid="uid://bv27iiv00pfo2" path="res://scenes/ingredients/tooth.tscn" id="3_urafa"]
-[ext_resource type="PackedScene" uid="uid://od5tgx6bje14" path="res://scenes/trash.tscn" id="5_t1x00"]
-[ext_resource type="PackedScene" uid="uid://c2jsg7pag7h3o" path="res://scenes/customer.tscn" id="6_trjy6"]
+[ext_resource type="PackedScene" path="res://scenes/trash.tscn" id="5_t1x00"]
+[ext_resource type="PackedScene" uid="uid://c3lpw02h6qup5" path="res://scenes/customer.tscn" id="6_trjy6"]
 [ext_resource type="PackedScene" uid="uid://4rgo4ie3wbk3" path="res://scenes/potions/scrum_potion.tscn" id="7_3mxeq"]
-[ext_resource type="PackedScene" uid="uid://bfg4nsgnq0r3e" path="res://scenes/money.tscn" id="8_h141m"]
+[ext_resource type="PackedScene" uid="uid://dudj5rekpge3v" path="res://scenes/money.tscn" id="8_h141m"]
 [ext_resource type="PackedScene" uid="uid://brc67xiccj647" path="res://scenes/ingredients/tear.tscn" id="9_kvowo"]
 [ext_resource type="PackedScene" uid="uid://cytr83eam84hj" path="res://scenes/ingredients/eye.tscn" id="10_hervo"]
 [ext_resource type="PackedScene" uid="uid://dvsobut34y2dy" path="res://scenes/potions/pink_potion.tscn" id="11_pbsf0"]
@@ -17,7 +17,7 @@
 script = ExtResource("1_6qw2n")
 
 [node name="Ghost_Customer" parent="." instance=ExtResource("6_trjy6")]
-position = Vector2(1411, 338)
+position = Vector2(629, 345)
 scale = Vector2(0.200001, 0.200001)
 expected_id = 1
 
@@ -53,8 +53,6 @@ position = Vector2(211, 263)
 id = 3
 initial_position = Vector2(211, 263)
 
-<<<<<<< Updated upstream
-=======
 [node name="money" parent="." instance=ExtResource("8_h141m")]
 
 [node name="pink potion" parent="." instance=ExtResource("11_pbsf0")]
@@ -68,10 +66,7 @@ position = Vector2(563, 533)
 id = 1
 initial_position = Vector2(563, 533)
 
-[connection signal="disatisfied" from="Ghost_Customer" to="money" method="_on_ghost_customer_disatisfied"]
-[connection signal="satisfied" from="Ghost_Customer" to="money" method="_on_ghost_customer_satisfied"]
 [connection signal="brew_pink" from="cauldron" to="pink potion" method="_on_cauldron_brew_pink"]
->>>>>>> Stashed changes
 [connection signal="brew_scrum" from="cauldron" to="scrum potion" method="_on_cauldron_brew_scrum"]
 [connection signal="add_ingredient" from="tooth" to="cauldron" method="_on_add_ingredient"]
 [connection signal="add_ingredient" from="nail" to="cauldron" method="_on_add_ingredient"]

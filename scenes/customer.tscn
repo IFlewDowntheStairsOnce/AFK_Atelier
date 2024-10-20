@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2jsg7pag7h3o"]
+[gd_scene load_steps=14 format=3 uid="uid://c3lpw02h6qup5"]
 
 [ext_resource type="Script" path="res://scenes/customer.gd" id="1_vl161"]
 [ext_resource type="Texture2D" uid="uid://cvkci6vpca74v" path="res://art/character/Ghost_Customer/Ghost_Customer_Neutral.png" id="2_dwplx"]
 [ext_resource type="Texture2D" uid="uid://d20ar63la3v5v" path="res://art/character/Ghost_Customer/Ghost_Customer_Satisfied.png" id="3_duu43"]
 [ext_resource type="Texture2D" uid="uid://gsfw3ecx17p8" path="res://art/character/Ghost_Customer/Ghost_Customer_Unsatisfied.png" id="4_2du2q"]
-[ext_resource type="PackedScene" uid="uid://dn2762svndpqh" path="res://scenes/dialogue.tscn" id="5_bi13k"]
+[ext_resource type="PackedScene" path="res://scenes/dialogue.tscn" id="5_bi13k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_is1cb"]
 atlas = ExtResource("2_dwplx")
