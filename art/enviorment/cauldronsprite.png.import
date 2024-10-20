@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo3ht1hmbxqmc"
-path="res://.godot/imported/TempCustomer.png-a44d45f9cb2b36818a99af6f128f6f2b.ctex"
+uid="uid://ytenq7fdaji6"
+path="res://.godot/imported/cauldronsprite.png-91934ae3911f8901992c3735a23edcfa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/character/TempCustomer.png"
-dest_files=["res://.godot/imported/TempCustomer.png-a44d45f9cb2b36818a99af6f128f6f2b.ctex"]
+source_file="res://art/enviorment/cauldronsprite.png"
+dest_files=["res://.godot/imported/cauldronsprite.png-91934ae3911f8901992c3735a23edcfa.ctex"]
 
 [params]
 
