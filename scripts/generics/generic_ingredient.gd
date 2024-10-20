@@ -23,7 +23,6 @@ func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: in
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("click"):
 		selected = false
-		var tween = get_tree().create_tween()
 		if inside_cauldron:
 			if not added:
 				added = true
@@ -32,6 +31,7 @@ func _input(_event: InputEvent) -> void:
 				global_position = initial_position
 		else:
 			added = false
+			var tween = get_tree().create_tween()
 			tween.tween_property(self, "global_position", initial_position, 0.2).set_ease(Tween.EASE_OUT)
 		global_position = initial_position
 
